@@ -4,10 +4,6 @@ var _loginRequired = require('../middlewares/loginRequired'); var _loginRequired
 
 const router = new (0, _express.Router)();
 
-// Não deveria existir na rota users
-/* router.get('/', loginRequired, userController.index);
-router.get('/:id', userController.show); */
-
 router.post('/', _UserController2.default.create);
 router.put('/', _loginRequired2.default, _UserController2.default.update);
 router.delete('/', _loginRequired2.default, _UserController2.default.delete);
