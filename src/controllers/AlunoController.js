@@ -33,7 +33,7 @@ class AlunoController {
 
   async show(req, res) {
     try {
-      const { id } = req.body;
+      const { id } = req.params;
 
       if (!id) return res.status(400).json({ errors: ['Missing ID'] });
 

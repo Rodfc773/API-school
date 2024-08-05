@@ -17,7 +17,7 @@ class AlunoController {
   async index(req, res) {
     try {
       const students = await _Aluno2.default.findAll({
-        attributes: ['nome', 'sobrenome', 'idade'],
+        attributes: ['id', 'nome', 'sobrenome', 'idade'],
         order: [['id', 'DESC'], [_Files2.default, 'id', 'DESC']],
         include: {
           model: _Files2.default,
@@ -33,12 +33,12 @@ class AlunoController {
 
   async show(req, res) {
     try {
-      const { id } = req.body;
+      const { id } = req.params;
 
       if (!id) return res.status(400).json({ errors: ['Missing ID'] });
 
       const student = await _Aluno2.default.findByPk(id, {
-        attributes: ['nome', 'sobrenome', 'idade'],
+        attributes: ['id', 'nome', 'sobrenome', 'idade'],
         order: [['id', 'DESC'], [_Files2.default, 'id', 'DESC']],
         include: {
           model: _Files2.default,
