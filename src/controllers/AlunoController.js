@@ -38,7 +38,7 @@ class AlunoController {
       if (!id) return res.status(400).json({ errors: ['Missing ID'] });
 
       const student = await Aluno.findByPk(id, {
-        attributes: ['id', 'nome', 'sobrenome', 'idade'],
+        attributes: ['id', 'nome', 'sobrenome', 'idade', 'email', 'peso', 'altura'],
         order: [['id', 'DESC'], [File, 'id', 'DESC']],
         include: {
           model: File,
